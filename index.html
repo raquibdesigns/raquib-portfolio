@@ -365,7 +365,8 @@ footer{padding:24px 60px;border-top:1px solid var(--border);display:flex;align-i
   </div>
   <div class="r d2">
     <p class="sec-label" style="margin-bottom:26px">Send a Message</p>
-    <form onsubmit="handleForm(event)">
+    <form name="contact" method="POST" data-netlify="true">
+<input type="hidden" name="form-name" value="contact">
       <div class="frow">
         <div><label>Name</label><input type="text" placeholder="Your name" required/></div>
         <div><label>Email</label><input type="email" placeholder="your@email.com" required/></div>
@@ -423,7 +424,6 @@ document.querySelectorAll('.pcard').forEach(p=>p.addEventListener('click',()=>op
 document.getElementById('mcl').addEventListener('click',closeM);
 document.getElementById('mbd').addEventListener('click',closeM);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
-function handleForm(e){e.preventDefault();const b=document.getElementById('fsb');b.textContent='Sending…';b.disabled=true;setTimeout(()=>{b.style.display='none';document.getElementById('fok').style.display='block'},1100);}
 const secs=document.querySelectorAll('section[id]'),nas=document.querySelectorAll('nav a:not(.ncta)');
 window.addEventListener('scroll',()=>{let c='';secs.forEach(s=>{if(window.scrollY>=s.offsetTop-90)c=s.id});nas.forEach(a=>{a.style.color=a.getAttribute('href')==='#'+c?'var(--white)':'var(--muted)'})},{passive:true});
 </script>
